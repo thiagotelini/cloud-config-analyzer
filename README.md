@@ -11,6 +11,7 @@ O sistema é capaz de classificar buckets como:
 - ❌ **insecure** — expostos publicamente ou com ACLs indevidas  
 
 O projeto inclui:
+
 ✔ Relatório HTML profissional  
 ✔ Mock de dados + treinamento do modelo  
 ✔ Adaptador para converter JSON real de buckets para o formato de entrada da IA  
@@ -39,7 +40,7 @@ Cada linha recebe a classificação automática “secure”, “attention” ou
 ### 2. Treinamento do modelo  
 O dataset é usado para treinar um **RandomForestClassifier**, que aprende padrões dessas configurações.
 
-### 3. Adaptador JSON → Features  
+### 3. Adaptador JSON  
 JSONs reais de buckets são convertidos para:
 
 ```json
