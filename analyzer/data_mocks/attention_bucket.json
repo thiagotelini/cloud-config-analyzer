@@ -1,0 +1,11 @@
+{
+  "name": "generic-bucket-03",
+  "public_access": false,
+  "acl": [],
+  "iamPolicy": {
+    "bindings": []
+  },
+  "encryption": {
+    "enabled": false
+  }
+}

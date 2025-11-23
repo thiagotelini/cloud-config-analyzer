@@ -1,0 +1,26 @@
+{
+  "name": "generic-bucket-02",
+  "location": "US",
+  "iamConfiguration": {
+    "uniformBucketLevelAccess": {
+      "enabled": false
+    }
+  },
+  "acl": [
+    {
+      "entity": "allUsers",
+      "role": "READER"
+    }
+  ],
+  "iamPolicy": {
+    "bindings": [
+      {
+        "role": "roles/storage.objectViewer",
+        "members": [
+          "allUsers"
+        ]
+      }
+    ]
+  },
+  "encryption": null
+}

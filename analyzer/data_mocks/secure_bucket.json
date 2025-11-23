@@ -1,0 +1,68 @@
+{
+  "name": "generic-bucket-01",
+  "location": "US",
+  "storageClass": "STANDARD",
+  "versioning": {
+    "enabled": true
+  },
+  "iamConfiguration": {
+    "uniformBucketLevelAccess": {
+      "enabled": true
+    },
+    "publicAccessPrevention": "enforced"
+  },
+  "encryption": {
+    "defaultKmsKeyName": "projects/my-project/locations/us/keyRings/main/cryptoKeys/storage-key"
+  },
+  "logging": {
+    "logBucket": "my-logs-bucket",
+    "logObjectPrefix": "access-logs/"
+  },
+  "labels": {
+    "env": "production",
+    "owner": "sec-team"
+  },
+  "lifecycle": {
+    "rule": [
+      {
+        "action": {"type": "Delete"},
+        "condition": {"age": 365}
+      }
+    ]
+  },
+  "acl": [
+    {
+      "entity": "project-owners-123456",
+      "role": "OWNER"
+    },
+    {
+      "entity": "project-editors-123456",
+      "role": "WRITER"
+    }
+  ],
+  "iamPolicy": {
+    "bindings": [
+      {
+        "role": "roles/storage.objectViewer",
+        "members": [
+          "user:user@company.com",
+          "group:read@company.com"
+        ]
+      },
+      {
+        "role": "roles/storage.objectAdmin",
+        "members": [
+          "serviceAccount:system@project.iam.gserviceaccount.com"
+        ]
+      }
+    ]
+  },
+  "cors": [
+    {
+      "origin": ["https://myapp.com"],
+      "method": ["GET", "POST"],
+      "responseHeader": ["Content-Type"],
+      "maxAgeSeconds": 3600
+    }
+  ]
+}
